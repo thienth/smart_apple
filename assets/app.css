@@ -1,13 +1,200 @@
+/* Template-specific stuff
+ *
+ * Customizations just for the template; these are not necessary for anything
+ * with disabling the responsiveness.
+ */
+body{
+	min-width: 970px;
+	position: relative;
+}
+.loading{
+    background: white;
+    width: 100%;
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    opacity: 0.8;
+}
+.loading-icon{
+	margin: 16% 0;
+    font-size: 75px;
+}
+.glyphicon-refresh-animate {
+    -animation: spin .7s infinite linear;
+    -webkit-animation: spin2 .7s infinite linear;
+}
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg);}
+    to { -webkit-transform: rotate(360deg);}
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg);}
+    to { transform: scale(1) rotate(360deg);}
+}
+/* Non-responsive overrides
+ *
+ * Utilize the following CSS to disable the responsive-ness of the container,
+ * grid system, and navbar.
+ */
+
+/* Reset the container */
+.container {
+	width: 970px;
+	height: 768px;
+}
+ul.list{
+	margin: 0;
+}
+
 img{
 	width: 100%;
 }
-.js-edit, .js-remove{
+.js-remove{
 	min-height: 640px;
-	border: 2px dashed #f60;		
+	min-width: 50px;
+	margin: 143px 150px 0 0px;
+	list-style: none;
+	padding: 0;
+	float: right;
 }
-
+.js-edit{
+	min-height: 640px;
+	margin: 121px 79px 0 0px;
+	list-style: none;
+	padding: 0;
+	float: right;
+}
+.js-edit li{
+	margin-bottom: 1px;
+}
 .circle {
 	border-radius: 50%;
 	width: 50px;
 	height: 50px; 
+}
+
+.main-div{
+	background: url(./images/tao.jpg) no-repeat center;
+	background-size: contain;	
+	position: relative;
+}
+
+.new-item{
+	background: transparent;
+	margin-bottom: 1px;
+}
+
+.img-div{
+    position: absolute;
+    top: 104px;
+    left: 220px;
+    width: 383px;
+    height: 558px;
+}
+
+.video-1{
+   	position: absolute;
+    top: 143px;
+    left: 273px;
+    background: transparent;
+    min-width: 115px;
+    min-height: 54px;
+}
+.video-2{
+   	position: absolute;
+    top: 143px;
+    left: 403px;
+    background: transparent;
+    min-width: 97px;
+    min-height: 117px;
+}
+
+.video-3{
+   	position: absolute;
+    top: 201px;
+    left: 275px;
+    background: transparent;
+    min-width: 95px;
+    min-height: 95px;
+}
+
+.video-4{
+   	position: absolute;
+    top: 268px;
+    left: 409px;
+    background: transparent;
+    min-width: 103px;
+    min-height: 66px;
+}
+
+.video-5{
+   	position: absolute;
+    top: 306px;
+    left: 271px;
+    background: transparent;
+    min-width: 112px;
+    min-height: 90px;
+}
+
+.video-6{
+   	position: absolute;
+    top: 342px;
+    left: 425px;
+    background: transparent;
+    min-width: 80px;
+    min-height: 60px;
+}
+
+.video-7{
+   	position: absolute;
+    top: 407px;
+    left: 261px;
+    background: transparent;
+    min-width: 104px;
+    min-height: 76px;
+}
+
+.video-8{
+   	position: absolute;
+    top: 407px;
+    left: 387px;
+    background: transparent;
+    min-width: 104px;
+    min-height: 76px;
+}
+
+.video-8{
+   	position: absolute;
+    top: 409px;
+    left: 389px;
+    background: transparent;
+    min-width: 101px;
+    min-height: 75px;
+}
+
+.video-9{
+   	position: absolute;
+    top: 492px;
+    left: 276px;
+    background: transparent;
+    min-width: 88px;
+    min-height: 75px;
+}
+
+.video-10{
+   	position: absolute;
+    top: 492px;
+    left: 426px;
+    background: transparent;
+    min-width: 88px;
+    min-height: 75px;
+}
+
+.close{
+	color: red;
 }
