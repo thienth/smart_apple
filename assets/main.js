@@ -5,7 +5,49 @@ jQuery(document).ready(function($) {
 	    name: 'shared',
 	    put: true,
 	    sort: false
-	  }
+	  },
+	  onRemove: function (/**Event*/evt) {
+	        // same properties as onUpdate
+	        var itemEl = evt.item;  // dragged HTMLElement
+	        evt.from;  // previous list
+	        // + indexes from onEnd
+	        var currentOrder = $(itemEl).attr("order");
+	        var currentIndex = -1;
+
+	        var nextEl = $("li.tmp-item[order="+currentOrder+"]");
+	        $(nextEl).removeClass("hide");
+	        $(nextEl).attr("sort", 0);
+	    },
+	    onMove: function (/**Event*/evt) {
+	        // Example: http://jsbin.com/tuyafe/1/edit?js,output
+	        var itemEl = evt.dragged;
+	        if($(itemEl).hasClass("tmp-item")){
+	        	return false;
+	        }
+	    },
+	    onAdd: function (/**Event*/evt) {	    	
+	        var itemEl = evt.item;  // dragged HTMLElement
+	        evt.from;  // previous list
+	        // + indexes from onEnd
+	        var currentOrder = $(itemEl).attr("order");
+	        var nextEl = $(itemEl).next();
+	        
+	        if(!$(nextEl).hasClass("hide") && $(nextEl).hasClass("tmp-item")){
+	        	$(nextEl).addClass("hide");
+	        	$(nextEl).attr("order", currentOrder);
+	        }else{
+	        	
+	        	var listTmp = $("ul#editGr").find("li.tmp-item");
+				var lastTmp = [];
+				listTmp.each(function(index, item){
+					if(!$(item).hasClass("hide")){
+						lastTmp.push(item);
+					}
+				});
+				$(lastTmp[lastTmp.length-1]).addClass("hide");
+				$(lastTmp[lastTmp.length-1]).attr("order", currentOrder);
+	        }
+	    },
 	});
 
 	Sortable.create(removeGr, {
@@ -143,7 +185,7 @@ jQuery(document).ready(function($) {
 				if(confirm == true){
 					$(".loading").removeClass("hide");
 					$("#demo-img").attr("src", "./assets/images/demo-next.png");
-					
+					$(".play-video").attr("data-target", "#videoModal1");
 					setInterval(function(){
 						$(".loading").addClass("hide");
 					}, 2000);
